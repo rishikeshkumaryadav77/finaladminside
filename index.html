@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin side</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- header -->
+  <header>
+    <div class="logo">BuyMe</div>
+    
+    <div class="profile">
+      
+      <img src="ra.jpg" alt="Profile Picture" />
+      <span>Admin</span>
+      <span><p style="color: black;">Rishikesh</p></span>
+    </div>
+  </header>
+
+
+
+  <!--form container -->
+  <div class="form-container">
+    <input type="hidden" id="id" name="id">
+    <input type="text" id="name" name="name" required placeholder="Title">
+    <input type="text" id="Price" name="Price" required placeholder="Price">
+    <input type="text" id="image" name="image" required placeholder="Paste URL">
+    <button onclick="saveData()" id="saveData">Save Data</button>
+  </div>
+  
+  <!-- container -->
+  <div class="container">
+
+  </div>
+
+  <script src="./index.js"></script>
+</body>
+</html>
