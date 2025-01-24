@@ -1,5 +1,9 @@
 //fecthing data
 async function fetchData() {
+
+  const loader = document.getElementById("loader");
+  loader.style.display = "block"; // Show loader
+
   let url = await fetch("https://tortoiseshell-lime-town.glitch.me/product");
   try {
     if (!url.ok) {
@@ -9,6 +13,7 @@ async function fetchData() {
     console.log(error);
   }
   let data = await url.json();
+  loader.style.display = "none"; // Hide loader after fetching data
   getData(data);
 }
 
@@ -74,6 +79,9 @@ function getData(data) {
 // Define saveData in the global scope
 
 async function saveData() {
+  const loader = document.getElementById("loader");
+  loader.style.display = "block"; // Show loader
+
   let InputId = document.getElementById("id").value;
   let InputName = document.getElementById("name").value.trim(); // Trim whitespace
   let InputPrice = document.getElementById("Price").value.trim();
@@ -115,8 +123,15 @@ async function saveData() {
     if (!response.ok) {
       throw new Error(response.statusText);
     }
+    loader.style.display = "none"; // Hide loader after fetching data
     alert(InputId ? "Data Updated Successfully" : "Data Added Successfully");
+    // Clear input fields after successful update or addition
+    document.getElementById("id").value = "";
+    document.getElementById("name").value = "";
+    document.getElementById("Price").value = "";
+    document.getElementById("image").value = "";
     fetchData(); // Refresh the data to reflect the changes
+    
   } catch (error) {
     console.error(error);
   }
